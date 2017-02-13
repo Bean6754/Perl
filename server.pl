@@ -8,6 +8,7 @@ $| = 1;
  
 # creating a listening socket
 my $socket = new IO::Socket::INET (
+    # Put you local IP here if you want to host this server over a local (or global (if port forwarded)) network.
     LocalHost => '127.0.0.1',
     LocalPort => '80',
     Proto => 'tcp',
@@ -40,6 +41,7 @@ while(1)
     $data =
 	localtime() . 
 	"\nHello from Perl";
+	"\nThe server broadcast IP is: " . $client_address;
     $client_socket->send($data);
  
     # notify client that response has been sent
