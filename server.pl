@@ -41,7 +41,7 @@ while(1)
     $data =
 	localtime() . 
 	"\nHello from Perl";
-	"\nThe server broadcast IP is: " . $client_address;
+	# Fix :     "\nThe server broadcast IP is: $client_address";
     $client_socket->send($data);
  
     # notify client that response has been sent
