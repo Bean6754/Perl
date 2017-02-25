@@ -39,8 +39,13 @@ while(1)
  
     # write response data to the connected client
     $data =
+    	"$client_address" . 
 	localtime() . 
-	"\nHello from Perl";
+	"\nHello from Perl\nPPID is " 
+	. getppid() . 
+	"\nServer admin is: '" 
+	. getlogin() . "'"
+	;
 	# Fix :     "\nThe server broadcast IP is: $client_address";
     $client_socket->send($data);
  
